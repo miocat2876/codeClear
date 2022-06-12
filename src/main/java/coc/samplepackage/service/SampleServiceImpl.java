@@ -1,6 +1,6 @@
 package coc.samplepackage.service;
 
-import coc.samplepackage.dao.SampleMapper;
+import coc.samplepackage.mapper.SampleMapper;
 import coc.samplepackage.dto.SampleDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

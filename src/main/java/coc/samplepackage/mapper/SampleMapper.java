@@ -1,4 +1,4 @@
-package coc.samplepackage.dao;
+package coc.samplepackage.mapper;
 
 import coc.samplepackage.dto.SampleDto;
 import org.apache.ibatis.annotations.Mapper;
