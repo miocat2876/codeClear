@@ -6,12 +6,9 @@ const Test = styled.button`
 
   ${props => {
     console.log(props);
-    return (
-      props &&
-      css`
-        background: black;
-      `
-    );
+    return css`
+      background: black;
+    `;
   }}
 `;
 

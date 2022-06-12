@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="coc.test.mapper.TestMapper">
+<mapper namespace="coc.samplepackage.dao.SampleMapper">
 
-    <select id="test" resultType="TestDTO">
-        SELECT test FROM TEST
+    <select id="sampleSelect" resultType="int">
+        SELECT count(*) FROM TEST
     </select>
 
 
