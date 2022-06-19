@@ -10,6 +10,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
+/* http 상태코드정리 https://www.whatap.io/ko/blog/40/ */
+/* REST full https://memostack.tistory.com/180 */
+/* get 조회 */
+/* post 등록 */
+/* put 업데이트 */
+/* delete 삭제 */
+
+
 @Slf4j
 @RequiredArgsConstructor
 @RestController
