@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="coc.freeBoard.mapper.FreeBoardMapper">
+
+    <select id="read" resultType="int">
+        SELECT QNA_NUM_PK
+             , QNA_SUBJECT
+             , QNA_CONTENT
+             , QNA_DATE_CRE
+             , QNA_DATE_UPD
+             , QNA_DEL
+             , MEMBER_NUM_FK
+        FROM QNA_BOARD_TB
+    </select>
+
+    <select id="read" resultType="int">
+        SELECT QNA_RE_NUM_PK
+             , QNA_RE_CONTENT
+             , QNA__REDATE_CRE
+             , QNA_RE_DATE_UPD
+             , QNA_RE_DEL
+             , QNA_NUM_FK
+             , MEMBER_NUM_FK
+        FROM QNA_BOARD_TB
+    </select>
+
+
+
+</mapper>

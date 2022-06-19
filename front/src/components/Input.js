@@ -7,7 +7,7 @@ const Test = styled.button`
   ${props => {
     console.log(props);
     return css`
-      background: black;
+      background: black; 
     `;
   }}
 `;
