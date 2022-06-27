@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 @Slf4j
-public abstract class GlobalExceptionHandler {
+public class GlobalExceptionHandler {
 
     @ExceptionHandler(DataNotFoundException.class)
     protected ResponseEntity<ErrorResponse> dataNotFoundException(DataNotFoundException e) {

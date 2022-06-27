@@ -1,6 +1,6 @@
 package coc.error;
 
-public class AbstractErrorException extends RuntimeException {
+public abstract class AbstractErrorException extends RuntimeException {
 
 	private final ErrorCode errorCode;
 

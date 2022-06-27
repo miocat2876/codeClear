@@ -1,5 +1,6 @@
 package coc.freeBoard.controller;
 
+import coc.error.DataNotFoundException;
 import coc.freeBoard.dto.FreeBoardDto;
 import coc.freeBoard.service.FreeBoardService;
 import common.ResponseDto;
@@ -17,7 +18,12 @@ import org.springframework.web.bind.annotation.*;
 /* post 등록 */
 /* put 업데이트 */
 /* delete 삭제 */
-
+// REST full     /member <-회원관리 주소
+//               /member/1 get방식 조회
+//               /member post방식으로 등록
+//               /member put 방식으로 수정
+//               /member delete 방식으로 삭제
+//               /member/{id} -> 회원
 
 @Slf4j
 @RequiredArgsConstructor
@@ -28,8 +34,24 @@ public class FreeBoardController {
     private final FreeBoardService freeBoardService;
 
     @ResponseBody
-    @GetMapping("/{boardType}")
-    public ResponseEntity<String> getBoardList(@PathVariable String boardType, FreeBoardDto dto) {
+    @GetMapping("/members")
+    public ResponseEntity<ResponseDto<String>> getBoardList(@PathVariable String id, FreeBoardDto dto) {
+
+        String sampleResultData = freeBoardService.sample(dto) + "";
+
+        if(sampleResultData == null)
+            throw new DataNotFoundException();
+
+        log.info("============샘플시작===========");
+        log.info(sampleResultData);
+        log.info("============끝===========");
+
+        return null;//ResponseEntity.ok(ResponseDto.builder().message("asd").status(200).data(""));
+    }
+
+    @ResponseBody
+    @PostMapping("/{boardType}/{id}")
+    public ResponseEntity<String> insertBoard(@PathVariable String boardType,@PathVariable String id,FreeBoardDto dto) {
 
         String sampleResultData = freeBoardService.sample(dto) + "";
 
@@ -37,7 +59,20 @@ public class FreeBoardController {
         log.info(sampleResultData);
         log.info("============끝===========");
 
-        return ResponseEntity.ok("");
+        return new ResponseEntity<String>(sampleResultData, new HttpHeaders(), HttpStatus.valueOf(200));
+    }
+
+    @ResponseBody
+    @PutMapping("/{boardType}/{id}")
+    public ResponseEntity<String> updateBoard(@PathVariable String boardType,@PathVariable String id,FreeBoardDto dto) {
+
+        String sampleResultData = freeBoardService.sample(dto) + "";
+
+        log.info("============샘플시작===========");
+        log.info(sampleResultData);
+        log.info("============끝===========");
+
+        return new ResponseEntity<String>(sampleResultData, new HttpHeaders(), HttpStatus.valueOf(200));
     }
 
     @ResponseBody

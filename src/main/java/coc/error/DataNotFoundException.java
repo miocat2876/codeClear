@@ -1,8 +1,9 @@
 package coc.error;
 
+/* 예제 */
 public class DataNotFoundException extends AbstractErrorException{
 
-	public DataNotFoundException(ErrorCode errorCode) {
+	public DataNotFoundException() {
 		super(ErrorCode.DATA_NOT_FOUND);
 	}
 	public DataNotFoundException(String message,ErrorCode errorCode) {
