@@ -1,7 +1,8 @@
 import React,{useState} from 'react';
 // import InputTest from './components/InputTest';
-import {AppBar,Toolbar,IconButton,Typography,Container,Grid,Card,CardContent,CardActions,Button,CardMedia,RadioGroup,Radio,Box,Autocomplete,TextField,FormControlLabel,Checkbox} from '@mui/material';
+import {AppBar,Toolbar,IconButton,Typography,Container,Grid,Card,CardContent,CardActions,Button,CardMedia,Avatar,RadioGroup,Radio,Box,Autocomplete,TextField,FormControlLabel,Checkbox} from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
+import { deepOrange, deepPurple } from '@mui/material/colors';
 import { Paper } from '@mui/material'
 
 function AcademyList() {
@@ -159,7 +160,7 @@ function AcademyList() {
                 </Typography>
             </Toolbar>
             </AppBar>
-            <Grid container spacing={2} xs={12}>
+            <Grid container spacing={3} xs={12}>
                 <Grid container item md={3} sm={12} sx={{display:'block'}}>
                     <Grid item xs={12} sx={{ display: 'flex', mt : '16px', pb : '16px', borderBottom : "1px solid black"}}>
                         <Autocomplete
@@ -198,26 +199,24 @@ function AcademyList() {
                     </Grid>
                     
                 </Grid>
-                <Grid container item md={9} sm={12}   justifyContent="center" alignItems="center" sx={{}}>
-                    {[1,2,3,4,5,6].map((item,index)=><Grid container key={index} item lg={4} sm={6} xs={12} sx={{marginTop : '20px',justifyContent : "center",alignItems : "center"}}>
-                    <Card sx={{ minWidth: 250 }} >
-                        <CardContent>
-                            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                            Word of the Day
-                            </Typography>
-                            <Typography variant="h5" component="div">
-                            </Typography>
-                            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                            adjective
-                            </Typography>
+                <Grid container item md={9} sm={12}  sx={{}}>
+                    {[1,2,3,4,5,6].map((item,index)=><Grid container key={index} item xl={3} lg={4} md={6} sm={6} xs={12} sx={{marginTop : '20px', justifyContent:'center'}}>
+                    <Card sx={{ width: 250,height:200 }} >
+                        <CardContent sx={{display: 'flex',
+                                          flexDirection: 'column',
+                                          alignItems: 'center',
+                                          justifyContent: 'space-evenly',
+                                          height: 'inherit'}}>
+                            <Avatar sx={{ bgcolor: deepPurple[500]}}
+                                        >FR</Avatar>
                             <Typography variant="body2">
-                            well meaning and kindly.
+                                 프론트 개발
                             <br />
                             {'"a benevolent smile"'}
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small">Learn More</Button>
+                            {/* <Button size="small">Learn More</Button> */}
                         </CardActions>
                         </Card>
                     </Grid>)}
