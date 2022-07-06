@@ -3,7 +3,7 @@
 
 <mapper namespace="coc.freeBoard.mapper.FreeBoardMapper">
 
-    <select id="read" resultType="int">
+    <select id="insert" parameterType="FreeBoardDto" resultType="FreeBoardDto">
         SELECT QNA_NUM_PK
              , QNA_SUBJECT
              , QNA_CONTENT
@@ -14,7 +14,7 @@
         FROM QNA_BOARD_TB
     </select>
 
-    <select id="read" resultType="int">
+    <select id="delete" parameterType="FreeBoardDto" resultType="FreeBoardDto">
         SELECT QNA_RE_NUM_PK
              , QNA_RE_CONTENT
              , QNA__REDATE_CRE

@@ -3,7 +3,7 @@
 
 <mapper namespace="coc.freeBoard.mapper.FreeBoardMapper">
 
-    <select id="read" resultType="int">
+    <select id="read" parameterType="FreeBoardDto" resultType="FreeBoardDto">
         SELECT FREE_NUM_PK
              , FREE_SUBJECT
              , FREE_CONTENT
@@ -14,7 +14,7 @@
           FROM FREE_BOARD_TB
     </select>
 
-    <select id="read" resultType="int">
+    <select id="update" parameterType="FreeBoardDto" resultType="FreeBoardDto">
         SELECT FREE_RE_NUM_PK
              , FREE_RE_CONTENT
              , FREE_REDATE_CRE
