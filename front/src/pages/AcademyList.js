@@ -4,6 +4,7 @@ import {AppBar,Toolbar,IconButton,Typography,Container,Grid,Card,CardContent,Car
 import HomeIcon from '@mui/icons-material/Home';
 import { deepOrange, deepPurple } from '@mui/material/colors';
 import { Paper } from '@mui/material'
+import { hover } from '@testing-library/user-event/dist/hover';
 
 function AcademyList() {
     const top100Films = [
@@ -201,7 +202,8 @@ function AcademyList() {
                 </Grid>
                 <Grid container item md={9} sm={12}  sx={{}}>
                     {[1,2,3,4,5,6].map((item,index)=><Grid container key={index} item xl={3} lg={4} md={6} sm={6} xs={12} sx={{marginTop : '20px', justifyContent:'center'}}>
-                    <Card sx={{ width: 250,height:200 }} >
+                    <Card sx={{ width: 250,height:200,
+                                "&:hover" : {backgroundColor : 'red'}}} >
                         <CardContent sx={{display: 'flex',
                                           flexDirection: 'column',
                                           alignItems: 'center',
