@@ -40,8 +40,7 @@ public class FreeBoardController {
 
         Integer sampleResultData = freeBoardService.sample(dto);
 
-        if(sampleResultData == 0)
-            throw new DataNotFoundException();
+
 
         log.info("============샘플시작===========");
         log.info(sampleResultData + "");
