@@ -35,18 +35,19 @@ public class FreeBoardController {
 
     @ResponseBody
     @GetMapping("/members")
-    public ResponseEntity<ResponseDto<String>> getBoardList(@PathVariable String id, FreeBoardDto dto) {
+    @ResponseStatus(value = HttpStatus.OK)
+    public ResponseEntity<ResponseDto<Integer>> getBoardList(@PathVariable String id, FreeBoardDto dto) {
 
-        String sampleResultData = freeBoardService.sample(dto) + "";
+        Integer sampleResultData = freeBoardService.sample(dto);
 
-        if(sampleResultData == null)
+        if(sampleResultData == 0)
             throw new DataNotFoundException();
 
         log.info("============샘플시작===========");
-        log.info(sampleResultData);
+        log.info(sampleResultData + "");
         log.info("============끝===========");
 
-        return null;//ResponseEntity.ok(ResponseDto.builder().message("asd").status(200).data(""));
+        return ResponseEntity.ok(ResponseDto.<Integer>builder().message("테스트").status(HttpStatus.OK.value()).data(sampleResultData).build());
     }
 
     @ResponseBody

@@ -13,7 +13,7 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 
 	private final FreeBoardMapper freeBoardMapper;
 
-	public int sample(FreeBoardDto dto){
+	public Integer sample(FreeBoardDto dto){
 		return freeBoardMapper.create(dto);
 	}
 	

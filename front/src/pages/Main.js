@@ -5,8 +5,32 @@ import HomeIcon from '@mui/icons-material/Home';
 //https://www.npmjs.com/package/react-material-ui-carousel 캐러셀
 import Carousel from 'react-material-ui-carousel'
 import { Paper } from '@mui/material'
+import Header from '../layout/Header';
+import AcademyList from '../components/AcademyList';
+
+// display: flex;
+//     position: absolute;
+//     top: 50%;
+//     flex-direction: column;
+//     left: 0;
+//     align-items: baseline;
 
 function Main() {
+
+    const carouselStyled ={
+        IndicatorIcon : <HomeIcon/>,
+        indicatorContainerProps : {
+            style: {
+                display: "flex",
+                position: "absolute",
+                top: "50%",
+                flexDirection: "column",
+                left: 0,
+                alignItems: "baseline",
+            }
+        }
+    }
+
   var items = [
     {
         name: "Random Name #1",
@@ -18,29 +42,14 @@ function Main() {
     }
 ]
 
-var menuList = [{name : '학원정보', img : './img/miocat.png'},
-                {name : '후기'    , img : './img/miocat.png'},
-                {name : '질문'    , img : './img/miocat.png'},
-                {name : '자유'    , img : './img/miocat.png'},
-                {name : '로그인'  , img : './img/miocat.png'},
-                {name : 'info'    , img : './img/miocat.png'}]
 
   return (
     <div>
       <Container maxWidth="xl">
-        <AppBar position="static">
-          <Toolbar variant="dense">
-            <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-              <HomeIcon  />
-            </IconButton>
-            <Typography variant="h6" color="inherit" component="div">
-              CodeClear
-            </Typography>
-          </Toolbar>
-        </AppBar>
+        <Header/>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <Carousel>
+            <Carousel {...carouselStyled}>
                 {
                     items.map( (item, i) => <Item key={i} item={item} /> )
                 }
@@ -56,28 +65,7 @@ var menuList = [{name : '학원정보', img : './img/miocat.png'},
             </Typography>
           </Grid>
         </Grid>
-        <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }} justifyContent="center" alignItems="center">
-            {
-              menuList.map((item,idx) =>  <Grid key={idx} item xs={6} sm={4} md={4}>
-                  <Card key={idx} xs={{ maxWidth: 345 }}>
-                    <a href="#">
-                      <CardMedia
-                        component="img"
-                        height="140"
-                        image={item.img}
-                        alt="menu"
-                        style={{objectFit: 'contain'}}
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                          {item.name}
-                        </Typography>
-                      </CardContent>
-                    </a>
-                  </Card>
-                </Grid>)
-            }
-        </Grid>
+        <AcademyList/>
       </Container>
     </div>
   );

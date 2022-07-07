@@ -6,7 +6,7 @@ import { deepOrange, deepPurple } from '@mui/material/colors';
 import { Paper } from '@mui/material'
 import { hover } from '@testing-library/user-event/dist/hover';
 
-function AcademyList() {
+function Academy() {
     const top100Films = [
         { label: 'The Shawshank Redemption', year: 1994 },
         { label: 'The Godfather', year: 1972 },
@@ -230,4 +230,4 @@ function AcademyList() {
 
   
 }
-export default AcademyList;
+export default Academy;
