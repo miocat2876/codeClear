@@ -1,6 +1,9 @@
 import axios from "axios";
 
-export default () =>axios.get('http://cc.miocat.synology.me/board/members/')
+const dev_url = 'https://cc.miocat.synology.me';
+const local_url = 'http://localhost:8080';
+
+export default () =>axios.get(`${dev_url}/board/members/`)
             .then(function(response) {
               console.log(response);
             })
