@@ -36,7 +36,7 @@ public class FreeBoardController {
     @ResponseBody
     @GetMapping("/members")
     @ResponseStatus(value = HttpStatus.OK)
-    public ResponseEntity<ResponseDto<Integer>> getBoardList(@PathVariable String id, FreeBoardDto dto) {
+    public ResponseEntity<ResponseDto<Integer>> getBoardList(FreeBoardDto dto) {
 
         Integer sampleResultData = freeBoardService.sample(dto);
 
