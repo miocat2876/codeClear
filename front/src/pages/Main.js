@@ -7,6 +7,7 @@ import Carousel from 'react-material-ui-carousel'
 import { Paper } from '@mui/material'
 import Header from '../layout/Header';
 import AcademyList from '../components/AcademyList';
+import { useLocation, useParams } from 'react-router-dom';
 
 // display: flex;
 //     position: absolute;
@@ -16,6 +17,11 @@ import AcademyList from '../components/AcademyList';
 //     align-items: baseline;
 
 function Main() {
+
+    const productId = useParams().productId;
+    const location = useLocation();
+
+    console.log(location);
 
     const carouselStyled ={
         IndicatorIcon : <HomeIcon/>,
