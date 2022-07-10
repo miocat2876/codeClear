@@ -8,6 +8,8 @@ import { Paper } from '@mui/material'
 import Header from '../layout/Header';
 import AcademyList from '../components/AcademyList';
 import { useLocation, useParams } from 'react-router-dom';
+import { useQueryClient } from 'react-query';
+import useMemberQuery from '../common/query/branch/useMemberQuery';
 
 // display: flex;
 //     position: absolute;
@@ -48,9 +50,19 @@ function Main() {
     }
 ]
 
+const a = useMemberQuery.members('post','','',useQueryClient());
+
+const {id,setId} = useState('1');
+
+const onClick = ()=>{
+
+    a.mutate({id});
+}
+
 
   return (
     <div>
+      <p onClick={onClick}>123123123123123123123</p>
       <Container maxWidth="xl">
         <Header/>
         <Grid container spacing={2}>

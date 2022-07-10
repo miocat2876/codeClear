@@ -6,7 +6,6 @@ import './App.css';
 // import CounterContainers from './module/CounterContainers';
 import AcademyList from './pages/Main';
 import Main from './pages/Main';
-import members,{memberUpdate} from './query/members';
 // import InputTest from './components/InputTest';
 // https://goddaehee.tistory.com/305
 // https://tech.kakao.com/2022/06/13/react-query/
@@ -14,11 +13,12 @@ import members,{memberUpdate} from './query/members';
 function App() {
 
   
-  const queryClient = useQueryClient();
-  console.log(queryClient.getQueryData(["members",1]));
-  console.log(memberUpdate(11));
+
+  //console.log(queryClient.getQueryData(["members",1]));
+  //console.log(memberUpdate(11));
+
   
-  members();
+  //members();
   return (
     <div className="App">
       <BrowserRouter>
