@@ -15,10 +15,10 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 0,
-      useErrorBoundary: true,
+      useErrorBoundary: false,
     },
     mutations: {
-      useErrorBoundary: true,
+      useErrorBoundary: false,
     },
   },
 });

@@ -1,9 +1,7 @@
 import axios from "axios";
 import { useQuery } from "react-query";
-import env from "../env";
-import queryString from "../queryString";
 
-export default function(keys = [],callData = {},option = {}){
+export default function(key = [], url, callData,option = {}, useQueryClient){
 
     const defaultOpntion = {
         //enabled: productDataSuccess,
@@ -23,8 +21,6 @@ export default function(keys = [],callData = {},option = {}){
             console.log(e.message,'onError');
           }
     };
-
     option =  {...defaultOpntion, ...option};
-    let serach = typeof(callData) === 'object' && !Array.isArray(callData) ? queryString(callData)  : '';
-    return useQuery(keys, () => axios.get(`${env()}/${(keys[1] || '')}${serach}`),option);
+    return useQuery(key, async () => await axios.get(url),option);
 }

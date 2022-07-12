@@ -1,3 +1,9 @@
 export default function(data){
-    return '?' + Object.entries(data).map(item => item.join('=')).join('&');
+    let result = '';
+    if(typeof(data) === 'object' && !Array.isArray(data)){
+        result = '?' + Object.entries(data).map(item => item.join('=')).join('&');
+    }else{
+        result = '';
+    }
+    return result;
 }

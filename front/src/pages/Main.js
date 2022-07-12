@@ -8,8 +8,9 @@ import { Paper } from '@mui/material'
 import Header from '../layout/Header';
 import AcademyList from '../components/AcademyList';
 import { useLocation, useParams } from 'react-router-dom';
-import { useQueryClient } from 'react-query';
-import useMemberQuery from '../common/query/branch/useMemberQuery';
+import { QueryClient, useMutation, useQueryClient } from 'react-query';
+import useMemberQuery from '../common/query/useMemberQuery';
+import axios from 'axios';
 
 // display: flex;
 //     position: absolute;
@@ -17,6 +18,8 @@ import useMemberQuery from '../common/query/branch/useMemberQuery';
 //     flex-direction: column;
 //     left: 0;
 //     align-items: baseline;
+
+
 
 function Main() {
 
@@ -26,7 +29,7 @@ function Main() {
     console.log(location);
 
     const carouselStyled ={
-        IndicatorIcon : <HomeIcon/>,
+        IndicatorIcon : <span>─</span>,
         indicatorContainerProps : {
             style: {
                 display: "flex",
@@ -50,19 +53,8 @@ function Main() {
     }
 ]
 
-const a = useMemberQuery.members('post','','',useQueryClient());
-
-const {id,setId} = useState('1');
-
-const onClick = ()=>{
-
-    a.mutate({id});
-}
-
-
   return (
     <div>
-      <p onClick={onClick}>123123123123123123123</p>
       <Container maxWidth="xl">
         <Header/>
         <Grid container spacing={2}>
