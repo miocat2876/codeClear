@@ -1,7 +1,7 @@
 import wrapperMutation from "./wrapperMutation";
 import wrapperQuery from "./wrapperQuery";
-import env from "../../utils/env";
-import queryString from "../../utils/queryString";
+import env from "../../../utils/env";
+import queryString from "../../../utils/queryString";
 
 export default function(operationList,useQueryClient,defaultOpntion){
     const service = {};

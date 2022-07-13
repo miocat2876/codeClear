@@ -21,10 +21,7 @@ export function colorRed(value){
 
 const initialState = {};
 
-
 export default function colorTheme(state = initialState, action){
-	console.log(state)
-	console.log(action)
 	switch (action.type) {
 		case DARK:
 			return {...state,...action.color};
