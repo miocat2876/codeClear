@@ -1,28 +1,15 @@
 import React from 'react';
-import { useQueryClient } from 'react-query';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import './App.css';
-// import CounterContainer2 from './module/CounterContainer2';
-// import CounterContainers from './module/CounterContainers';
 import AcademyList from './pages/Main';
 import Main from './pages/Main';
-// import InputTest from './components/InputTest';
-// https://goddaehee.tistory.com/305
-// https://tech.kakao.com/2022/06/13/react-query/
-// https://hini7.tistory.com/151
+import Header from "./layout/Header";
+import Footer from "./layout/Footer";
 function App() {
-
-
-
-  //console.log(queryClient.getQueryData(["members",1]));
-  //console.log(memberUpdate(11));
-
-
-  //members();
-  return (
-    <div className="App">
-      <BrowserRouter>
-				{/* <Header /> */}
+	return (
+		<div className="App">
+			<Header/>
+			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Main/>}/>
 					<Route path="/product/*" element={<AcademyList/>}/>
@@ -30,11 +17,9 @@ function App() {
 					{/* <Route path="*" element={<NotFound />}></Route> */}
 				</Routes>
 			</BrowserRouter>
-      {/* <AcademyList /> */}
-      {/* <CounterContainers />
-      <CounterContainer2 /> */}
-    </div>
-  );
+			<Footer/>
+		</div>
+	);
 }
 
 export default App;

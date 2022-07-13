@@ -5,10 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import '../src/common/redux/reducer/reducer'
 import {createStore} from "redux";
 import {Provider} from "react-redux";
-import rootReducer from "./common/redux/reducer/reducer";
+import rootReducer from "./store/reducer/rootReducer";
 
 const store = createStore(rootReducer);
 

@@ -2,20 +2,10 @@ import React,{useState} from 'react';
 import {AppBar,Toolbar,IconButton,Typography,Container,Grid,Card,CardContent,CardActions,Button,CardMedia} from '@material-ui/core';
 import Carousel from 'react-material-ui-carousel'
 import { Paper } from '@mui/material'
-import Header from '../layout/Header';
 import AcademyList from '../components/AcademyList';
 import { useLocation, useParams } from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
-import colorTheme, {colorDark} from "../common/redux/colorTheme";
-
-// display: flex;
-//     position: absolute;
-//     top: 50%;
-//     flex-direction: column;
-//     left: 0;
-//     align-items: baseline;
-
-
+import {colorDark} from "../store/colorTheme";
 
 function Main() {
 
@@ -60,7 +50,6 @@ function Main() {
     <div>
         <div onClick={onCreate}>{todos.value}클릭</div>
       <Container maxWidth="xl">
-        <Header/>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Carousel {...carouselStyled}>
