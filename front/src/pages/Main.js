@@ -1,18 +1,11 @@
 import React,{useState} from 'react';
-// import InputTest from './components/InputTest';
 import {AppBar,Toolbar,IconButton,Typography,Container,Grid,Card,CardContent,CardActions,Button,CardMedia} from '@material-ui/core';
-import HomeIcon from '@mui/icons-material/Home';
-//https://www.npmjs.com/package/react-material-ui-carousel 캐러셀
 import Carousel from 'react-material-ui-carousel'
 import { Paper } from '@mui/material'
 import Header from '../layout/Header';
 import AcademyList from '../components/AcademyList';
 import { useLocation, useParams } from 'react-router-dom';
-import { QueryClient, useMutation, useQueryClient } from 'react-query';
-import useMemberQuery from '../common/query/useMemberQuery';
-import axios from 'axios';
 import {useDispatch, useSelector} from "react-redux";
-import {addTodo} from "../common/redux/reducer/test2";
 import colorTheme, {colorDark} from "../common/redux/colorTheme";
 
 // display: flex;
