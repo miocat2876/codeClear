@@ -11,6 +11,9 @@ import { useLocation, useParams } from 'react-router-dom';
 import { QueryClient, useMutation, useQueryClient } from 'react-query';
 import useMemberQuery from '../common/query/useMemberQuery';
 import axios from 'axios';
+import {useDispatch, useSelector} from "react-redux";
+import {addTodo} from "../common/redux/reducer/test2";
+import colorTheme, {colorDark} from "../common/redux/colorTheme";
 
 // display: flex;
 //     position: absolute;
@@ -25,6 +28,13 @@ function Main() {
 
     const productId = useParams().productId;
     const location = useLocation();
+
+    const todos = useSelector(state => state.colorTheme);
+    const dispatch = useDispatch();
+
+    const onCreate = text => dispatch(colorDark('dark'));
+
+    console.log(todos);
 
     console.log(location);
 
@@ -55,6 +65,7 @@ function Main() {
 
   return (
     <div>
+        <div onClick={onCreate}>{todos.value}클릭</div>
       <Container maxWidth="xl">
         <Header/>
         <Grid container spacing={2}>

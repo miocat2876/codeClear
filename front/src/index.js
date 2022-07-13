@@ -5,11 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import '../src/common/redux/reducer/reducer'
+import {applyMiddleware, createStore} from "redux";
+import reducer from "./common/redux/reducer/reducer";
+import {Provider} from "react-redux";
+import rootReducer from "./common/redux/reducer/reducer";
 // import { Provider } from 'react-redux';
 // import { createStore } from "redux";
 // import rootReducer from "./module/index";
 
-// const store = createStore(rootReducer);
+const store = createStore(rootReducer);
+// const store = createStore(rootReducer, composeWithDevTools());
+// const store = createStore(rootReducer, applyMiddleware(reducer));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,13 +33,13 @@ const queryClient = new QueryClient({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
     <QueryClientProvider client={queryClient}>
       {/* devtools */}
       <ReactQueryDevtools initialIsOpen={true} />
-    {/* <Provider store={store}> */}
       <App />
-    {/* </Provider> */}
     </QueryClientProvider>
+    </Provider>
   </React.StrictMode>
 );
 
