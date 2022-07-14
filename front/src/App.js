@@ -5,6 +5,10 @@ import AcademyList from './pages/Main';
 import Main from './pages/Main';
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
+import * as PropTypes from "prop-types";
+import ErrorBoundary from "./context/ErrorBoundary";
+import GlobalLoading from "./hoc/query/commonQuery/GlobalLoading";
+
 function App() {
 	return (
 		<div className="App">
@@ -18,6 +22,7 @@ function App() {
 				</Routes>
 			</BrowserRouter>
 			<Footer/>
+			<GlobalLoading/>
 		</div>
 	);
 }

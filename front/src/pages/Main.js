@@ -6,14 +6,18 @@ import AcademyList from '../components/AcademyList';
 import { useLocation, useParams } from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
 import {colorDark} from "../store/colorTheme";
+import useMemberQuery from "../hoc/query/useMemberQuery";
+import {useQueryClient} from "react-query";
 
-function Main() {
+ function Main() {
 
     const productId = useParams().productId;
     const location = useLocation();
 
     const todos = useSelector(state => state.colorTheme);
     const dispatch = useDispatch();
+
+    console.log(useMemberQuery(useQueryClient()).get.members());
 
     const onCreate = text => dispatch(colorDark('dark'));
 

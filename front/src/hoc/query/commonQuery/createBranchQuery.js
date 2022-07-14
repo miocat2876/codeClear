@@ -4,8 +4,8 @@ import env from "../../../utils/env";
 import queryString from "../../../utils/queryString";
 
 export default function(operationList,useQueryClient,defaultOpntion){
+    if(!useQueryClient) throw Error("useQueryClient는 필수 입니다.");
     const service = {};
-
     const operationKeys = Object.keys(operationList);
     operationKeys.forEach((key)=>{
         operationList[key].method.forEach((method)=>{
@@ -13,13 +13,13 @@ export default function(operationList,useQueryClient,defaultOpntion){
             if(['get'].includes(method)){
                 operationFn = (data,option) => {
                     option =  {...defaultOpntion, ...option};
-                    const url = service['url'] ?? env() + '/' + key + queryString(data);
+                    const url = option['url'] ?? env() + '/' + key + queryString(data);
                     return wrapperQuery(key,url,option,useQueryClient);
                 };
             }else if(['post'].includes(method)){
                 operationFn = (data,option) => {
                     option =  {...defaultOpntion, ...option};
-                    const url = env() + '/' + key;
+                    const url = option['url'] ?? env() + '/' + key;
                     return wrapperMutation(method,key,url,data,option,useQueryClient);
                 };
             }else if(['put'].includes(method)){
