@@ -5,12 +5,10 @@ export function colorGrayYellow(){
 		type : GRAY_YELLOW,
 		color : {
 			first  : 'rgba(60,60,60,1)',
-			second : 'yellow',
-			none   : 'rgba(60,60,60,0)',
+			second : 'rgba(95,95,95,1)',
 		}
 	}
 }
-
 
 const initialState = {...colorGrayYellow()};
 

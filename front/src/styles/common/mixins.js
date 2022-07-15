@@ -10,13 +10,13 @@ export const fx = (option = {}) => {
 	};
 	const {$h,$v,$w,$direction} = {...defaultOption,...option};
 
-	return `
+	return {
 		display        : 'flex',
-		justifyContent : ${$h},
-		alignItems     : ${$v},
-		flexWrap       : ${$w},
-		flexDirection  : ${$direction},
-	`
+		justifyContent : $h,
+		alignItems     : $v,
+		flexWrap       : $w,
+		flexDirection  : $direction,
+	}
 }
 
 export const fxWrap = (option = {})  =>{
@@ -25,30 +25,31 @@ export const fxWrap = (option = {})  =>{
 	};
 	const {$w} = {...defaultOption,...option};
 
-	return `
-	    flexWrap: ${$w}
-	`;
+	return `flexWrap: ${$w}`;
 
 }
 export const fxCol = () =>{
-	return `
+	return {
 		flexDirection: 'column'
-	`;
+	}
 }
 
 export const center = (option = {})  =>{
 	const defaultOption = {
-		$z : `auto`
+		$position : 'absolute',
+		$z        : `auto`,
+		$top      : '50%',
+		$left     : '50%',
 	};
-	const {$z} = {...defaultOption,...option};
+	const {$position,$z,$top,$left} = {...defaultOption,...option};
 
-	return `
-		zIndex: ${$z},
-		position: 'absolute',
-		top: '50%',
-		left: '50%',
+	return {
+		zIndex: $z,
+		position: `${$position}`,
+		top: `${$top}`,
+		left: `${$left}`,
 		transform: 'translate(-50%,-50%)',
-	`;
+	}
 }
 
 export const wrapper = (option = {})  =>{
@@ -57,10 +58,11 @@ export const wrapper = (option = {})  =>{
 	};
 	const {$w} = {...defaultOption,...option};
 
-	return `
-		maxWidth: ${$w},
+	return {
+		maxWidth: $w,
 		margin: '0 auto',
-	`;
+
+	}
 }
 export const shadow = (option = {}) =>{
 	const defaultOption = {
@@ -71,9 +73,9 @@ export const shadow = (option = {}) =>{
 	};
 	const {$x,$y,$b,$o} = {...defaultOption,...option};
 
-	return `
-		boxShadow: ${$x} ${$y} ${$b} rgba(0,0,0,${$o})
-	`;
+	return {
+		boxShadow: `${$x} ${$y} ${$b} rgba(0,0,0,${$o})`
+	}
 }
 
 export const shadowBtn = (option = {})  =>{
@@ -85,12 +87,12 @@ export const shadowBtn = (option = {})  =>{
 	};
 	const {$x,$y,$b,$o} = {...defaultOption,...option};
 
-	return `
-		boxShadow : ${$x} ${$y} ${$b} ${$o},
+	return {
+		boxShadow : `${$x} ${$y} ${$b} ${$o}`,
 		'&:active':{
 			boxShadow:'none'
 		}
-	`;
+	}
 }
 
 export const shadowLight = (option = {})  =>{
@@ -102,9 +104,9 @@ export const shadowLight = (option = {})  =>{
 	};
 	const {$x,$y,$b,$o} = {...defaultOption,...option};
 
-	return `
-		boxShadow: 5px 5px 10px rgba(255,255,255,${$o})
-	`;
+	return {
+		boxShadow: `5px 5px 10px rgba(255,255,255,${$o})`
+	}
 }
 
 export const textShadow = (option = {})  =>{
@@ -116,9 +118,9 @@ export const textShadow = (option = {})  =>{
 	};
 	const {$x,$y,$b,$o} = {...defaultOption,...option};
 
-	return `
-		textShadow: 5px 5px 10px rgba(0,0,0,${$o})
-	`;
+	return {
+		textShadow: `5px 5px 10px rgba(0,0,0,${$o})`
+	}
 }
 
 export const textShadowLight = (option = {})  =>{
@@ -130,9 +132,9 @@ export const textShadowLight = (option = {})  =>{
 	};
 	const {$x,$y,$b,$o} = {...defaultOption,...option};
 
-	return `
-		textShadow: 5px 5px 10px rgba(255,255,255,${$o})
-	`;
+	return {
+		textShadow: `5px 5px 10px rgba(255,255,255,${$o})`
+	}
 }
 
 export const linkHover = (option = {}) =>{
@@ -144,14 +146,14 @@ export const linkHover = (option = {}) =>{
 	};
 	const {$w,$c,$g,$s} = {...defaultOption,...option};
 
-	return `
+	return {
 		'&::after':{
 			display         : 'block',
 			content         : "",
-			height          : ${$w},
-			backgroundColor : ${$c},
-			marginTop       : ${$g},
-			transition      : transform ${$s},
+			height          : $w,
+			backgroundColor : $c,
+			marginTop       : $g,
+			transition      : `transform ${$s}`,
 			transform       : 'scaleX(0)',
 			transformOrigin : 'right'
 		},
@@ -161,7 +163,7 @@ export const linkHover = (option = {}) =>{
                 transformOrigin : 'left'
             }
 		}
-    `;
+    }
 }
 
 export const ellipsis = (option = {})  => {
@@ -170,13 +172,13 @@ export const ellipsis = (option = {})  => {
 	};
 	const {$w} = {...defaultOption,...option};
 
-	return `
-		display      : 'inlineBlock',
-		width        : ${$w},
-		whiteSpace   : 'nowrap',
-		overflow     : 'hidden',
-		textOverflow : 'ellipsis',
-	`;
+	return {
+		display      : `inlineBlock`,
+		width        : $w,
+		whiteSpace   : `nowrap`,
+		overflow     : `hidden`,
+		textOverflow : `ellipsis`,
+	}
 }
 
 export const multiEllipsis =  (option = {})  =>{
@@ -187,28 +189,28 @@ export const multiEllipsis =  (option = {})  =>{
 	};
 	const {$w,$line,$lh} = {...defaultOption,...option};
 
-	return `
-		display            : '-webkit-box',
-		'-webkitLineClamp' : ${$line},
-		'-webkitBoxOrient' : 'vertical',
-		width              : ${$w},
-		lineHeight         : ${$lh},
-		height             : 'calc(${$lh} * ${$line})',
-		overflow           : 'hidden',
-		textOverflow       : 'ellipsis',
-		textAlign          : 'left',
-		wordWrap           : 'break-word',
-	`;
+	return {
+		display            : `-webkit-box`,
+		'-webkitLineClamp' : $line, /* 라인수 */
+		'-webkitBoxOrient' : `vertical`,
+		width              : $w,
+		lineHeight         : $lh,
+		height             : `calc(${$lh} * ${$line})`,
+		overflow           : `hidden`,
+		textOverflow       : `ellipsis`,
+		textAlign          : `left`,
+		wordWrap           : `break-word`,
+	}
 }
 
 export const scrollNone =  () =>{
-	return `
+	return {
         '-ms-overflow-style'     : 'none',
 		'scrollbar-width'        : 'none',
 		'&::-webkit-scrollbar'   : {
             display: 'none'
 		}
-	`;
+	}
 }
 
 /**************** 반응형 ****************/

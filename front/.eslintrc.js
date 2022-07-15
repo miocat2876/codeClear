@@ -19,6 +19,7 @@ module.exports = {
     ],
     "rules": {
         "react/prop-types": "off",
-        "no-unused-vars" : "off"
+        "no-unused-vars" : "off",
+        "no-mixed-spaces-and-tabs" : 0
     }
 }

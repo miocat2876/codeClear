@@ -1,26 +1,27 @@
 import React,{useState} from 'react';
-import {AppBar,Toolbar,IconButton,Typography,Container,Grid,Card,CardContent,CardActions,Button,CardMedia} from '@material-ui/core';
+import {Typography, Grid, IconButton, ImageList} from '@material-ui/core';
 import Carousel from 'react-material-ui-carousel'
-import { Paper } from '@mui/material'
+import {Box, ImageListItem, ImageListItemBar, Paper} from '@mui/material'
 import AcademyList from '../components/AcademyList';
 import { useLocation, useParams } from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
+import mainSlide1 from "../assets/image/mainSlide1.jpg";
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import {center} from "../styles/common/mixins";
+import StandardImageList from "../components/MenuList";
+import MenuList from "../components/MenuList";
 import useMemberQuery from "../hoc/query/useMemberQuery";
 import {useQueryClient} from "react-query";
-import {colorBlack} from "../store/colorTheme";
 
  function Main() {
 
+    useMemberQuery(useQueryClient()).get.members();
     const productId = useParams().productId;
     const location = useLocation();
 
-    const todos = useSelector(state => state.colorTheme);
-    const dispatch = useDispatch();
+    const colorTheme = useSelector(state => state.colorTheme);
 
-
-    // const onCreate = text => dispatch(colorBlack('BLACK'));
-
-    const carouselStyled ={
+    const carouselOption ={
         IndicatorIcon : <span>─</span>,
         indicatorContainerProps : {
             style: {
@@ -31,7 +32,8 @@ import {colorBlack} from "../store/colorTheme";
                 left: 0,
                 alignItems: "baseline",
             }
-        }
+        },
+        interval : 60000,
     }
 
   var items = [
@@ -46,28 +48,36 @@ import {colorBlack} from "../store/colorTheme";
 ]
 
   return (
-    <div>
-      <Container maxWidth="xl">
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Carousel {...carouselStyled}>
-                {
-                    items.map( (item, i) => <Item key={i} item={item} /> )
-                }
-            </Carousel>
-          </Grid>
-        </Grid>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Typography variant="h3" color="inherit" component="div">
-              {/* 개발자가 되는길,
-              CodeClear가
-              도와드리겠습니다! */}
-            </Typography>
-          </Grid>
-        </Grid>
-        <AcademyList/>
-      </Container>
+    <div style={{marginBottom : '6rem'}}>
+      <Box>
+        <Carousel {...carouselOption}>
+            {
+                items.map( (item, i) => <Item key={i} item={item} /> )
+            }
+        </Carousel>
+      </Box>
+        <Box
+            sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                width: '90%',
+                ...center({$position:'relative',$top : '85%',$left : '50%'}),
+                '& > :not(style)': {
+                    m: 1,
+                    width: '100%',
+                    height: 128,
+                },
+            }}
+        >
+            <Paper elevation={3} >
+                <Typography variant="h5" color="inherit" component="div" style={{height:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                    국비 학원정보가 필요하신가요? CodeClear가 도와드리겠습니다.
+                </Typography>
+            </Paper>
+        </Box>
+        <Box>
+            <MenuList/>
+        </Box>
     </div>
   );
 }
@@ -75,9 +85,9 @@ import {colorBlack} from "../store/colorTheme";
 function Item()
 {
     return (
-        <Paper>
-            <img src="./img/miocat.png" alt="" />
-        </Paper>
+        <Box sx={{height:500}}>
+            <img src={mainSlide1} alt="" style={{width:'100%'}}/>
+        </Box>
     )
 }
 
