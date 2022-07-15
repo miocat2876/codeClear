@@ -17,7 +17,6 @@ function Academy() {
         setChecked([event.target.checked, event.target.checked]);
       };
 
-
       const [value, setValue] = React.useState('female');
 
       const handleChange = (event) => {
@@ -28,16 +27,6 @@ function Academy() {
   return (
     <div>
         <Container maxWidth="xl">
-            <AppBar position="static">
-            <Toolbar variant="dense">
-                <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-                    <HomeIcon />
-                </IconButton>
-                <Typography variant="h6" color="inherit" component="div">
-                    CodeClear
-                </Typography>
-            </Toolbar>
-            </AppBar>
             <Grid container spacing={3} xs={12}>
                 <Grid container item md={3} sm={12} sx={{display:'block'}}>
                     <Grid item xs={12} sx={{ display: 'flex', mt : '16px', pb : '16px', borderBottom : "1px solid black"}}>

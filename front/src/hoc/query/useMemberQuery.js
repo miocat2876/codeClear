@@ -1,4 +1,9 @@
 import createBranchQuery from "./commonQuery/createCustomQuery";
+
+/*
+    사용법 useMemberQuery(useQueryClient()).get.members(data,option);
+ */
+
 const operationList = {
     'members' :  {'method' : ['get','post','put','delete']}
 };

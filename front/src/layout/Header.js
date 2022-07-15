@@ -15,9 +15,15 @@ import {fx} from "../styles/common/mixins";
 import {$CT, $SB} from "../styles/common/variables";
 import {Search, SearchIconWrapper} from "../styles/serachStyle";
 import {StyledInputBase} from "../styles/inputStyle";
+import {useNavigate} from "react-router-dom";
 
 const Header = () => {
 
+	let navigate = useNavigate();
+	function handleClick(link) {
+		console.log(link)
+		navigate(link);
+	}
 	const {color} = useSelector(state => state.colorTheme);
 
 	console.log(color)
@@ -51,7 +57,7 @@ const Header = () => {
 				<Toolbar variant="dense" style={{}}>
 					<Box sx={{...fx({$h: $SB, $v: $CT}), width: '100%'}}>
 						<Box sx={{display: 'flex', justifyContent: 'space-between'}}>
-							<Box sx={{display: 'flex', alignItems: 'center'}}>
+							<Box sx={{display: 'flex', alignItems: 'center',cursor:'pointer'}} onClick={()=>{handleClick('/')}}>
 								<Typography variant="h6" color="inherit" component="div">
 									CodeClear
 								</Typography>
