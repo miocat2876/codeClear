@@ -7,7 +7,7 @@ const MD  = 992;
 const SM  = 768;
 const XS  = 576;
 
-export function checkBrowserSize(){
+export function getBrowserSetting(){
 	return {
 		type    : DESKTOP,
 		desktop : {
@@ -16,9 +16,9 @@ export function checkBrowserSize(){
 	}
 }
 
-const initialState = {...checkBrowserSize()};
+const initialState = {...getBrowserSetting()};
 
-export default function browserSize(state = initialState, action){
+export default function browserSetting(state = initialState, action){
 	switch (action.type) {
 		default:
 			return state;

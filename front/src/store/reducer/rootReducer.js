@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import colorTheme from "../colorTheme";
-import browserSize from "../browserSize";
+import browserSetting from "../browserSetting";
 
 const rootReducer = combineReducers({
 	colorTheme,
-	browserSize
+	browserSize: browserSetting
 });
 
 export default rootReducer;

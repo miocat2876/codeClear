@@ -18,7 +18,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon  from '@mui/icons-material/Search';
 import {useSelector} from "react-redux";
 import {Box} from "@mui/material";
-import {checkBrowerSize} from "../store/browserSize";
+import {checkBrowerSize} from "../store/browserSetting";
+import {fx} from "../styles/common/mixins";
 
 const Header = () => {
 
@@ -91,7 +92,7 @@ const Header = () => {
     }));
 
     const menuList = ['게시판','학원게시판'];
-
+    console.log(fx())
     return (
         <>
         <AppBar style={appBarStyled}>
@@ -103,28 +104,34 @@ const Header = () => {
             {/*    CodeClear*/}
             {/*    </Typography>*/}
             {/*</Toolbar>*/}
-            <Toolbar variant="dense" style={toolbarStyled}>
-                <Typography variant="h6" color="inherit" component="div">
-                CodeClear
-                </Typography>
-                <Box sx={menuListStyled}>
-                    {menuList.map((menu,idx) =>
-                        <Button
-                            key = {idx}
-                            style={menuStyled}>
-                            {menu}
-                        </Button>
-                    )}
+            <Toolbar variant="dense" style={{}}>
+                <Box sx={{display : {lg : 'flex',justifyContent: 'space-between',alignItems : 'center'},width : '100%'}}>
+                    <Box sx={{display : {lg : 'flex',justifyContent: 'space-between'}}}>
+                        <Typography variant="h6" color="inherit" component="div">
+                        CodeClear
+                        </Typography>
+                        <Box sx={menuListStyled}>
+                            {menuList.map((menu,idx) =>
+                                <Button
+                                    key = {idx}
+                                    style={menuStyled}>
+                                    {menu}
+                                </Button>
+                            )}
+                        </Box>
+                    </Box>
+                    <Box>
+                        <Search>
+                            <SearchIconWrapper>
+                                <SearchIcon />
+                            </SearchIconWrapper>
+                            <StyledInputBase
+                                placeholder="Search…"
+                                inputProps={{ 'aria-label': 'search' }}
+                            />
+                        </Search>
+                    </Box>
                 </Box>
-                <Search>
-                    <SearchIconWrapper>
-                        <SearchIcon />
-                    </SearchIconWrapper>
-                    <StyledInputBase
-                        placeholder="Search…"
-                        inputProps={{ 'aria-label': 'search' }}
-                    />
-                </Search>
             </Toolbar>
         </AppBar>
         </>
