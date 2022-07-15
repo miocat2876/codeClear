@@ -5,9 +5,9 @@ import { Paper } from '@mui/material'
 import AcademyList from '../components/AcademyList';
 import { useLocation, useParams } from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
-import {colorDark} from "../store/colorTheme";
 import useMemberQuery from "../hoc/query/useMemberQuery";
 import {useQueryClient} from "react-query";
+import {colorBlack} from "../store/colorTheme";
 
  function Main() {
 
@@ -17,13 +17,8 @@ import {useQueryClient} from "react-query";
     const todos = useSelector(state => state.colorTheme);
     const dispatch = useDispatch();
 
-    console.log(useMemberQuery(useQueryClient()).get.members());
 
-    const onCreate = text => dispatch(colorDark('dark'));
-
-    console.log(todos);
-
-    console.log(location);
+    // const onCreate = text => dispatch(colorBlack('BLACK'));
 
     const carouselStyled ={
         IndicatorIcon : <span>─</span>,
@@ -52,7 +47,6 @@ import {useQueryClient} from "react-query";
 
   return (
     <div>
-        <div onClick={onCreate}>{todos.value}클릭</div>
       <Container maxWidth="xl">
         <Grid container spacing={2}>
           <Grid item xs={12}>

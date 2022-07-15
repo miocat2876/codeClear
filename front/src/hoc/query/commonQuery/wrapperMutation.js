@@ -1,7 +1,7 @@
 import axios from "axios";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation } from "react-query";
 
-export default function(method,key,url,option,useQueryClient){
+export default function(method,queryKey,url,option,useQueryClient){
     const defaultOpntion = {
         //enabled: productDataSuccess,
         useErrorBoundary: false,
@@ -11,7 +11,7 @@ export default function(method,key,url,option,useQueryClient){
         refetchOnWindowFocus: false,
         refetchIntervalInBackground: false,
         onMutate: (data) => {
-          useQueryClient.invalidateQueries(key);
+          useQueryClient.invalidateQueries(queryKey);
             // 'todos'로 시작하는 모든 쿼리들을 invalidate한다.
             // queryClient.invalidateQueries('todos');
             // const previousValue = queryClient.getQueryData('users');//이전데이터

@@ -1,4 +1,4 @@
-import createBranchQuery from "./commonQuery/createBranchQuery";
+import createBranchQuery from "./commonQuery/createCustomQuery";
 const operationList = {
     'members' :  {'method' : ['get','post','put','delete']}
 };

@@ -8,10 +8,18 @@ import Footer from "./layout/Footer";
 import * as PropTypes from "prop-types";
 import ErrorBoundary from "./context/ErrorBoundary";
 import GlobalLoading from "./hoc/query/commonQuery/GlobalLoading";
+import {useSelector} from "react-redux";
 
 function App() {
+
+	const browserSize = useSelector(state => state.browserSize);
+	const appStyled = {
+		maxWidth:browserSize.desktop.width,
+		margin : '0 auto',
+	}
+
 	return (
-		<div className="App">
+		<div className="App" style={appStyled}>
 			<Header/>
 			<BrowserRouter>
 				<Routes>

@@ -1,31 +1,22 @@
-const DARK = 'colorTheme/DARK';
-const RED = 'colorTheme/RED';
+const GRAY_YELLOW = 'colorTheme/GRAY_YELLOW';
 
-export function colorDark(value){
+export function colorGrayYellow(){
 	return {
-		type : DARK,
+		type : GRAY_YELLOW,
 		color : {
-			value
+			first  : 'rgba(60,60,60,1)',
+			second : 'yellow',
+			none   : 'rgba(60,60,60,0)',
 		}
 	}
 }
 
-export function colorRed(value){
-	return {
-		type : RED,
-		color : {
-			value
-		}
-	}
-}
 
-const initialState = {};
+const initialState = {...colorGrayYellow()};
 
 export default function colorTheme(state = initialState, action){
 	switch (action.type) {
-		case DARK:
-			return {...state,...action.color};
-		case RED:
+		case colorGrayYellow:
 			return {...state,...action.color};
 		default:
 			return state;

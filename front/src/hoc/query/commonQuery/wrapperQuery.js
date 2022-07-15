@@ -2,7 +2,7 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import {useCallback} from "react";
 
-export default function(key, url, callData,option, useQueryClient){
+export default function(queryKey, url, callData,option, useQueryClient){
 
     const defaultOpntion = {
         //enabled: productDataSuccess,
@@ -29,5 +29,5 @@ export default function(key, url, callData,option, useQueryClient){
           }
     };
     option =  {...defaultOpntion, ...option};
-    return useQuery(key, async () => await axios.get(url),option);
+    return useQuery(queryKey, async () => await axios.get(url),option);
 }
