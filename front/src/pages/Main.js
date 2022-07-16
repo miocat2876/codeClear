@@ -2,16 +2,14 @@ import React,{useState} from 'react';
 import {Typography, Grid, IconButton, ImageList} from '@material-ui/core';
 import Carousel from 'react-material-ui-carousel'
 import {Box, ImageListItem, ImageListItemBar, Paper} from '@mui/material'
-import AcademyList from '../components/AcademyList';
 import { useLocation, useParams } from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
 import mainSlide1 from "../assets/image/mainSlide1.jpg";
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 import {center} from "../styles/common/mixins";
-import StandardImageList from "../components/MenuList";
 import MenuList from "../components/MenuList";
 import useMemberQuery from "../hoc/query/useMemberQuery";
 import {useQueryClient} from "react-query";
+import CropDinIcon from '@mui/icons-material/CropDin';
 
  function Main() {
 
@@ -22,7 +20,7 @@ import {useQueryClient} from "react-query";
     const colorTheme = useSelector(state => state.colorTheme);
 
     const carouselOption ={
-        IndicatorIcon : <span>─</span>,
+        IndicatorIcon : <span style={{marginLeft : '1rem'}}><CropDinIcon/></span>,
         indicatorContainerProps : {
             style: {
                 display: "flex",
@@ -31,6 +29,7 @@ import {useQueryClient} from "react-query";
                 flexDirection: "column",
                 left: 0,
                 alignItems: "baseline",
+                transform: 'translate(0,-50%)',
             }
         },
         interval : 60000,

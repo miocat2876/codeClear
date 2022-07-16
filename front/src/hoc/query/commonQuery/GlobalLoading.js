@@ -9,14 +9,14 @@ const dimStyled = {
 	top: 0,
 	right: 0,
 	width: '100%',
-	height: '100%',
+	height: '100vh',
 	filter: 'opacity(0.3)',
 	backgroundColor: 'gray',
 	zIndex: 99,
 	overflow : 'none',
 }
 const loadingStyled = {
-	...center({$top : '30%'}),
+	...center(),
 	zIndex: 100,
 }
 
@@ -45,8 +45,11 @@ const GlobalLoading = () => {
 	const defaultLoading = 1000;
 
 	useEffect(() => {
-		setIsLoading(true);
-		const timeout = setTimeout(() => setIsLoading(( isFetching > 0 || isMutating > 0 )), defaultLoading);
+		const loading = isFetching > 0 || isMutating > 0;
+		if(loading){
+			setIsLoading(true);
+		}
+		const timeout = setTimeout(() => setIsLoading(loading), defaultLoading);
 		return () => {
 			clearTimeout(timeout);
 		}
@@ -54,11 +57,11 @@ const GlobalLoading = () => {
 
 	useEffect(() => {
 		if(isLoading) {
-			document.body.style.cssText = `position: fixed; top: -${window.scrollY}px`
+			document.body.style.cssText = `position: fixed; top: -${window.scrollY}px; height: 100vh;`
 		}
 		return () => {
 			const scrollY = document.body.style.top
-			document.body.style.cssText = `position: ""; top: "";`
+			document.body.style.cssText = `position: ""; top: ""; min-height: "";`
 			window.scrollTo(0, parseInt(scrollY || '0') * -1)
 		}
 	}, [isLoading])
