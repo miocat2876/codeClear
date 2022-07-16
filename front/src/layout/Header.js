@@ -10,7 +10,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import {useSelector} from "react-redux";
 import {Box} from "@mui/material";
-import {checkBrowerSize} from "../store/browserSetting";
+import {checkBrowerSize} from "../store/browserSize";
 import {fx} from "../styles/common/mixins";
 import {$CT, $SB} from "../styles/common/variables";
 import {Search, SearchIconWrapper} from "../styles/serachStyle";
@@ -50,11 +50,11 @@ const Header = () => {
 	}
 
 	const menuList = ['게시판', '학원검색'];
-
+	const browserSize = useSelector(state => state.browserSize);
 	return (
 		<div style={{marginBottom:'48px'}}>
 			<AppBar style={appBarStyled}>
-				<Toolbar variant="dense" style={{}}>
+				<Toolbar variant="dense" style={{minWidth:browserSize.size.width}}>
 					<Box sx={{...fx({$h: $SB, $v: $CT}), width: '100%'}}>
 						<Box sx={{display: 'flex', justifyContent: 'space-between'}}>
 							<Box sx={{display: 'flex', alignItems: 'center',cursor:'pointer'}} onClick={()=>{handleClick('/')}}>

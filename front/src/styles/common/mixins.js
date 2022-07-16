@@ -67,7 +67,7 @@ export const wrapper = (option = {})  =>{
 export const shadow = (option = {}) =>{
 	const defaultOption = {
 		$x : `5px`,
-		$y : `5px`,
+		$y : `20px`,
 		$b : `5px`,
 		$o : 0.1
 	};

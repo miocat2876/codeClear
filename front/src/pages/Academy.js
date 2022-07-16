@@ -1,96 +1,95 @@
 import React,{useState} from 'react';
 // import InputTest from './components/InputTest';
-import {AppBar,Toolbar,IconButton,Typography,Container,Grid,Card,CardContent,CardActions,Button,CardMedia,Avatar,RadioGroup,Radio,Box,Autocomplete,TextField,FormControlLabel,Checkbox} from '@mui/material';
+import {
+    AppBar,
+    Toolbar,
+    IconButton,
+    Typography,
+    Container,
+    Grid,
+    Card,
+    CardContent,
+    CardActions,
+    Button,
+    CardMedia,
+    Avatar,
+    RadioGroup,
+    Radio,
+    Box,
+    Autocomplete,
+    TextField,
+    FormControlLabel,
+    Checkbox,
+    FormGroup
+} from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import { deepOrange, deepPurple } from '@mui/material/colors';
 import { Paper } from '@mui/material'
 import { hover } from '@testing-library/user-event/dist/hover';
+import {useSelector} from "react-redux";
+import {shadow} from "../styles/common/mixins";
+import {Accordion, AccordionDetails, AccordionSummary, FormControl, FormLabel} from "@material-ui/core";
+import KeyboardArrowDownSharpIcon from '@mui/icons-material/KeyboardArrowDownSharp';
 
 function Academy() {
-    const top100Films = [
-        { label: 'The Shawshank Redemption', year: 1994 },
-      ];
 
-      const [checked, setChecked] = React.useState([true, false]);
+    const desktopSize = useSelector(state => state.browserSize);
 
-      const handleChange1 = (event) => {
-        setChecked([event.target.checked, event.target.checked]);
-      };
-
-      const [value, setValue] = React.useState('female');
-
-      const handleChange = (event) => {
-        setValue(event.target.value);
-      };
-    
+    const filterBoxStyled = {
+        borderBottom:'1px solid black'
+    }
 
   return (
     <div>
-        <Container maxWidth="xl">
-            <Grid container spacing={3} xs={12}>
-                <Grid container item md={3} sm={12} sx={{display:'block'}}>
-                    <Grid item xs={12} sx={{ display: 'flex', mt : '16px', pb : '16px', borderBottom : "1px solid black"}}>
-                        <Autocomplete
-                            disablePortal
-                            id="combo-box-demo"
-                            options={top100Films}
-                            sx={{ width: 300 }}
-                            renderInput={(params) => {console.log(params); return <TextField {...params} label="Movie" />}}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sx={{ mt : '16px', pb : '16px', borderBottom : "1px solid black"}}>
-                        {['Parent','Parent'].map((item,index)=><FormControlLabel
-                            key = {index}
-                            label={<div>{item}</div>}
-                            control={
-                                <Checkbox
-                                checked={checked[0] && checked[1]}
-                                indeterminate={checked[0] !== checked[1]}
-                                onChange={handleChange1}
-                                />
-                            }
-                        />)}
-                    </Grid>
-                    <Grid item xs={12} sx={{ mt : '16px', pb : '16px', borderBottom : "1px solid black"}}>
-                        <RadioGroup
-                            row
-                            aria-labelledby="demo-controlled-radio-buttons-group"
-                            name="controlled-radio-buttons-group"
-                            value={value}
-                            onChange={handleChange}
-                            sx={{justifyContent : "center"}}
+        <Box sx={{ flexGrow: 1}}>
+            <Grid container gap={6} style={{
+                minHeight : `calc(100vh - ${desktopSize.size.header})`}}>
+                <Grid item xs={2} style={{border: '1px solid black'}}>
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<KeyboardArrowDownSharpIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
                         >
-                            <FormControlLabel value="female" control={<Radio />} label="Female" />
-                            <FormControlLabel value="male" control={<Radio />} label="Male" />
-                        </RadioGroup>
-                    </Grid>
-                    
+                            <Typography>Accordion 1</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <FormGroup>
+                                <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
+                                <FormControlLabel disabled control={<Checkbox />} label="Disabled" />
+                            </FormGroup>
+                        </AccordionDetails>
+                    </Accordion>
                 </Grid>
-                <Grid container item md={9} sm={12}  sx={{}}>
-                    {[1,2,3,4,5,6].map((item,index)=><Grid container key={index} item xl={3} lg={4} md={6} sm={6} xs={12} sx={{marginTop : '20px', justifyContent:'center'}}>
-                    <Card sx={{ width: 250,height:200,
-                                "&:hover" : {backgroundColor : 'red'}}} >
-                        <CardContent sx={{display: 'flex',
-                                          flexDirection: 'column',
-                                          alignItems: 'center',
-                                          justifyContent: 'space-evenly',
-                                          height: 'inherit'}}>
-                            <Avatar sx={{ bgcolor: deepPurple[500]}}
-                                        >FR</Avatar>
-                            <Typography variant="body2">
-                                 프론트 개발
-                            <br />
-                            {'"a benevolent smile"'}
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            {/* <Button size="small">Learn More</Button> */}
-                        </CardActions>
+                <Grid item xs={9}>
+                    <Box>
+                        <Card sx={{ display: 'flex',alignItems:'center',p : '1rem'}}>
+                            <Box sx={{}}>
+                                <Avatar sx={{ bgcolor: deepOrange[500],width: 80, height: 80 }}>FRONT</Avatar>
+                            </Box>
+                            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                <CardContent sx={{ flex: '1 0 auto' }}>
+                                    <Typography component="div" variant="h5">
+                                        과정명
+                                    </Typography>
+                                    <Typography variant="subtitle1" color="text.secondary" component="div">
+                                        서울특별시 강남구 강남대로94길 20 (역삼동) 삼오빌딩 9층 삼오빌딩 9층
+                                    </Typography>
+                                    <Typography variant="subtitle1" color="text.secondary" component="div">
+                                        02-3486-4600
+                                    </Typography>
+                                    <Typography variant="subtitle1" color="text.secondary" component="div">
+                                        비트캠프 강남학원
+                                    </Typography>
+                                </CardContent>
+                                <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+                                </Box>
+                            </Box>
                         </Card>
-                    </Grid>)}
+                    </Box>
                 </Grid>
             </Grid>
-        </Container>
+        </Box>
     </div>
   );
 

@@ -12,9 +12,10 @@ function App() {
 
 	const browserSize = useSelector(state => state.browserSize);
 	const appStyled = {
-		minWidth:browserSize.desktop.width,
+		minWidth:browserSize.size.width,
 		width:'100%',
 		margin : '0 auto',
+
 	}
 
 	return (

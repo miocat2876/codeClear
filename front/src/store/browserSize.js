@@ -7,18 +7,19 @@ const MD  = 992;
 const SM  = 768;
 const XS  = 576;
 
-export function getBrowserSetting(){
+export function getDesktopSize(){
 	return {
 		type    : DESKTOP,
-		desktop : {
-			width : XL
+		size : {
+			width  : XL,
+			header : '48px'
 		},
 	}
 }
 
-const initialState = {...getBrowserSetting()};
+const initialState = {...getDesktopSize()};
 
-export default function browserSetting(state = initialState, action){
+export default function browserSize(state = initialState, action){
 	switch (action.type) {
 		default:
 			return state;
