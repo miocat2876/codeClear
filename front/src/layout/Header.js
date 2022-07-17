@@ -25,12 +25,12 @@ const Header = () => {
 		navigate(link);
 	}
 	const {color} = useSelector(state => state.colorTheme);
+	const browserSize = useSelector(state => state.browserSize);
 
 	console.log(color)
 
 	const appBarStyled = {
-		backgroundColor: color.first,
-		position: 'fixed'
+		backgroundColor : color.first,
 	}
 
 	const toolbarStyled = {
@@ -41,6 +41,7 @@ const Header = () => {
 	const menuListStyled = {
 		padding: '0.5rem 2rem',
 		fontSize: '0.875rem',
+		width: 'max-content',
 	}
 
 	const menuStyled = {
@@ -50,12 +51,12 @@ const Header = () => {
 	}
 
 	const menuList = ['게시판', '학원검색'];
-	const browserSize = useSelector(state => state.browserSize);
+
 	return (
 		<div style={{marginBottom:'48px'}}>
 			<AppBar style={appBarStyled}>
-				<Toolbar variant="dense" style={{minWidth:browserSize.size.width}}>
-					<Box sx={{...fx({$h: $SB, $v: $CT}), width: '100%'}}>
+				<Toolbar variant="dense">
+					<Box sx={{...fx({$h: $SB, $v: $CT,$w:'nowrap'}), width: '100%'}}>
 						<Box sx={{display: 'flex', justifyContent: 'space-between'}}>
 							<Box sx={{display: 'flex', alignItems: 'center',cursor:'pointer'}} onClick={()=>{handleClick('/')}}>
 								<Typography variant="h6" color="inherit" component="div">
