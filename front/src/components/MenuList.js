@@ -35,7 +35,7 @@ export default function MenuList() {
 						loading="lazy"
 						style={{borderRadius: '2rem'}}
 					/>}
-					<Box style={{...center({$top : '85%',$left:'75%'}),color:"black",fontSize:'2rem'}}>
+					<Box style={{...center({$top : '85%',$left:'70%'}),color:"black",fontSize:'2rem'}}>
 						{item.title}
 						<ArrowCircleUpIcon sx={{transform: 'rotate(90deg)',fontSize:'1.5rem'}}/>
 					</Box>

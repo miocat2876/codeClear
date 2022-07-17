@@ -39,6 +39,14 @@ function Academy() {
         borderBottom:'1px solid black'
     }
 
+    const tempData = [{
+        'title'   : '샘플과정1',
+        'address' : '강남구 머시기 학원1' 
+    },{
+        'title'   : '샘플과정2',
+        'address' : '강남구 머시기 학원2' 
+    }]
+
   return (
     <div>
         <Box sx={{ flexGrow: 1}}>
@@ -63,17 +71,19 @@ function Academy() {
                 </Grid>
                 <Grid item xs={9}>
                     <Box>
-                        <Card sx={{ display: 'flex',alignItems:'center',p : '1rem'}}>
+                        {
+                            tempData.map((data,idx)=>
+                                <Card key={idx} sx={{ display: 'flex',alignItems:'center',p : '1rem'}}>
                             <Box sx={{}}>
                                 <Avatar sx={{ bgcolor: deepOrange[500],width: 80, height: 80 }}>FRONT</Avatar>
                             </Box>
                             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                                 <CardContent sx={{ flex: '1 0 auto' }}>
                                     <Typography component="div" variant="h5">
-                                        과정명
+                                        {data.title}
                                     </Typography>
                                     <Typography variant="subtitle1" color="text.secondary" component="div">
-                                        서울특별시 강남구 강남대로94길 20 (역삼동) 삼오빌딩 9층 삼오빌딩 9층
+                                    {data.address}
                                     </Typography>
                                     <Typography variant="subtitle1" color="text.secondary" component="div">
                                         02-3486-4600
@@ -86,6 +96,9 @@ function Academy() {
                                 </Box>
                             </Box>
                         </Card>
+                            )
+                        }
+                        
                     </Box>
                 </Grid>
             </Grid>

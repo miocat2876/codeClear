@@ -4,7 +4,7 @@ const DEV_FRONT_URL  = 'https://code-clear.miocat.synology.me';
 
 export default () =>{
   let URL = '';
-  if(location.origin === DEV_FRONT_URL){
+  if(location.origin !== DEV_FRONT_URL){
     URL = DEV_BACK_URL;
   }else{
     URL = LOCAL_BACK_URL;
