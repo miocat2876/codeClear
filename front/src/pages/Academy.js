@@ -20,7 +20,9 @@ import {
     TextField,
     FormControlLabel,
     Checkbox,
-    FormGroup
+    FormGroup,
+    Stack,
+    Pagination
 } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import { deepOrange, deepPurple } from '@mui/material/colors';
@@ -47,6 +49,18 @@ function Academy() {
         'address' : '강남구 머시기 학원2' 
     }]
 
+    //
+
+    /*
+
+        훈련지역
+        카테고리
+        훈련일자
+        학원명
+
+
+    */
+
   return (
     <div>
         <Box sx={{ flexGrow: 1}}>
@@ -70,35 +84,42 @@ function Academy() {
                     </Accordion>
                 </Grid>
                 <Grid item xs={9}>
+                    <Typography component="div" variant="h5" sx={{my : 2,textAlign:'left'}}>
+                        학원목록
+                    </Typography>
                     <Box>
                         {
                             tempData.map((data,idx)=>
-                                <Card key={idx} sx={{ display: 'flex',alignItems:'center',p : '1rem'}}>
-                            <Box sx={{}}>
-                                <Avatar sx={{ bgcolor: deepOrange[500],width: 80, height: 80 }}>FRONT</Avatar>
-                            </Box>
-                            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                                <CardContent sx={{ flex: '1 0 auto' }}>
-                                    <Typography component="div" variant="h5">
-                                        {data.title}
-                                    </Typography>
-                                    <Typography variant="subtitle1" color="text.secondary" component="div">
-                                    {data.address}
-                                    </Typography>
-                                    <Typography variant="subtitle1" color="text.secondary" component="div">
-                                        02-3486-4600
-                                    </Typography>
-                                    <Typography variant="subtitle1" color="text.secondary" component="div">
-                                        비트캠프 강남학원
-                                    </Typography>
-                                </CardContent>
-                                <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-                                </Box>
-                            </Box>
-                        </Card>
-                            )
-                        }
-                        
+                                <Card key={idx} sx={{ display: 'flex',alignItems:'center',p : '1rem', mb:2}}>
+                                    <Box sx={{}}>
+                                        <Avatar sx={{ bgcolor: deepOrange[500],width: 80, height: 80 }}>FRONT</Avatar>
+                                    </Box>
+                                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                        <CardContent sx={{ flex: '1 0 auto' }}>
+                                            <Typography component="div" variant="h5">
+                                                {data.title}
+                                            </Typography>
+                                            <Typography variant="subtitle1" color="text.secondary" component="div">
+                                            {data.address}
+                                            </Typography>
+                                            <Typography variant="subtitle1" color="text.secondary" component="div">
+                                                02-3486-4600
+                                            </Typography>
+                                            <Typography variant="subtitle1" color="text.secondary" component="div">
+                                                비트캠프 강남학원
+                                            </Typography>
+                                        </CardContent>
+                                        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+                                        </Box>
+                                    </Box>
+                                </Card>
+                                )
+                            }
+                    </Box>
+                    <Box sx={{display:'flex',justifyContent:'center'}}>
+                        <Stack spacing={2}>
+                            <Pagination count={10} page={1}  variant="outlined" shape="rounded" />
+                        </Stack>
                     </Box>
                 </Grid>
             </Grid>
