@@ -69,6 +69,7 @@ function Academy() {
     //
 
     /*
+
         훈련지역
         카테고리
         훈련일자
@@ -81,66 +82,68 @@ function Academy() {
             <Grid container spacing={3} style={{
                 // minHeight : `calc(100vh - ${desktopSize.size.header})`
                 }}>
-                <Grid item xs={2} style={{border: '1px solid black'}}>
-                <Typography sx={{py:'1rem'}}>학원찾기</Typography>
-                    <Accordion expanded="true">
-                        <AccordionSummary
-                            expandIcon={<KeyboardArrowDownSharpIcon />}
-                            aria-controls="panel1a-content"
-                            id="panel1a-header"
-                        >
-                            <Typography>훈련지역</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <FormGroup>
-                                <FormControlLabel control={<Checkbox defaultChecked />} label="서울" />
-                                <FormControlLabel control={<Checkbox />} label="경기" />
-                            </FormGroup>
-                        </AccordionDetails>
-                    </Accordion>
-                    <Accordion expanded="true">
-                        <AccordionSummary
-                            expandIcon={<KeyboardArrowDownSharpIcon />}
-                            aria-controls="panel1a-content"
-                            id="panel1a-header"
-                        >
-                            <Typography>카테고리</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <FormGroup>
-                                <FormControlLabel control={<Checkbox defaultChecked />} label="프론트엔드" />
-                                <FormControlLabel control={<Checkbox />} label="백엔드" />
-                            </FormGroup>
-                        </AccordionDetails>
-                    </Accordion>
-                    <Accordion expanded="true">
-                        <AccordionSummary
-                            expandIcon={<KeyboardArrowDownSharpIcon />}
-                            aria-controls="panel1a-content"
-                            id="panel1a-header"
-                        >
-                            <Typography>훈련일자</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <FormGroup>
-                                <FormControlLabel control={<Checkbox defaultChecked />} label="서울" />
-                                <FormControlLabel control={<Checkbox />} label="경기" />
-                            </FormGroup>
-                        </AccordionDetails>
-                    </Accordion>
-                    <Box sx={{p:'1rem',textAlign:'left'}}>
-                        <FormControl variant="standard">
-                            <Input
-                            id="input-with-icon-adornment"
-                            placeholder='학원검색'
-                            startAdornment={
-                                <InputAdornment position="start">
-                                <SearchIcon />
-                                </InputAdornment>
-                            }
-                            />
-                        </FormControl>
-                    </Box>
+                <Grid item xs={2} style={{}}>
+                    <Paper>
+                        <Typography sx={{py:'1rem'}}>학원찾기</Typography>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<KeyboardArrowDownSharpIcon />}
+                                aria-controls="panel1a-content"
+                                id="panel1a-header"
+                            >
+                                <Typography>훈련지역</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <FormGroup>
+                                    <FormControlLabel control={<Checkbox defaultChecked />} label="서울" />
+                                    <FormControlLabel control={<Checkbox />} label="경기" />
+                                </FormGroup>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<KeyboardArrowDownSharpIcon />}
+                                aria-controls="panel1a-content"
+                                id="panel1a-header"
+                            >
+                                <Typography>카테고리</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <FormGroup>
+                                    <FormControlLabel control={<Checkbox defaultChecked />} label="프론트엔드" />
+                                    <FormControlLabel control={<Checkbox />} label="백엔드" />
+                                </FormGroup>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion expanded="true">
+                            <AccordionSummary
+                                expandIcon={<KeyboardArrowDownSharpIcon />}
+                                aria-controls="panel1a-content"
+                                id="panel1a-header"
+                            >
+                                <Typography>훈련일자</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <FormGroup>
+                                    <FormControlLabel control={<Checkbox defaultChecked />} label="서울" />
+                                    <FormControlLabel control={<Checkbox />} label="경기" />
+                                </FormGroup>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Box sx={{p:'1rem',textAlign:'left'}}>
+                            <FormControl variant="standard">
+                                <Input
+                                id="input-with-icon-adornment"
+                                placeholder='학원검색'
+                                startAdornment={
+                                    <InputAdornment position="start">
+                                    <SearchIcon />
+                                    </InputAdornment>
+                                }
+                                />
+                            </FormControl>
+                        </Box>
+                    </Paper>
                 </Grid>
                 <Grid item xs={10}>
                     <Typography variant="h5" sx={{my : 2,textAlign:'left'}}>
