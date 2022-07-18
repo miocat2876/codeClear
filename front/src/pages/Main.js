@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
-import {Typography, Grid, IconButton, ImageList} from '@material-ui/core';
 import Carousel from 'react-material-ui-carousel'
-import {Box, ImageListItem, ImageListItemBar, Paper} from '@mui/material'
+import {Box, ImageListItem, ImageListItemBar, Paper, Typography} from '@mui/material'
 import { useLocation, useParams } from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
 import mainSlide1 from "../assets/image/mainSlide1.jpg";

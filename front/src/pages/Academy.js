@@ -25,7 +25,7 @@ import {
     Pagination,
     Chip,
     InputLabel,
-    InputAdornment
+    InputAdornment, AccordionSummary, Accordion, AccordionDetails, FormControl, Input
 } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import { deepOrange, deepPurple } from '@mui/material/colors';
@@ -33,7 +33,6 @@ import { Paper } from '@mui/material'
 import { hover } from '@testing-library/user-event/dist/hover';
 import {useSelector} from "react-redux";
 import {shadow} from "../styles/common/mixins";
-import {Accordion, AccordionDetails, AccordionSummary, FormControl, FormLabel, Input} from "@material-ui/core";
 import KeyboardArrowDownSharpIcon from '@mui/icons-material/KeyboardArrowDownSharp';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -173,7 +172,7 @@ function Academy() {
                                                 </Typography>
                                             </CardContent>
                                             <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-                                            <Stack direction="row" spacing={1} sx={{display:'flex',alignItems:'end'}}>
+                                                <Stack direction="row" spacing={1} sx={{display:'flex',alignItems:'end'}}>
                                                     <Chip label="primary" color="primary" variant="outlined" />
                                                     <Chip label="success" color="success" variant="outlined" />
                                                 </Stack>
@@ -185,7 +184,8 @@ function Academy() {
                     </Grid>
                     <Box spacing={2} sx={{
                         display:'flex',
-                        justifyContent:'center'
+                        justifyContent:'center',
+                        py:'2rem',
                         }}>
                         <Pagination count={10} variant="outlined" shape="rounded" />
                     </Box>

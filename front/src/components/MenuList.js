@@ -1,11 +1,11 @@
 import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-import {Box, Paper} from "@material-ui/core";
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import {center} from "../styles/common/mixins";
 import menuBoard from '../assets/image/menuBoard.jpg';
 import {useNavigate} from "react-router-dom";
+import {Box} from "@mui/material";
 
 export default function MenuList() {
 	let navigate = useNavigate();

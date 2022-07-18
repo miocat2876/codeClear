@@ -1,15 +1,9 @@
 import React from 'react';
-import {
-	AppBar,
-	Toolbar,
-	Typography,
-	Button,
-} from '@material-ui/core';
 import {styled, alpha} from '@mui/material/styles';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import {useSelector} from "react-redux";
-import {Box} from "@mui/material";
+import {AppBar, Box, Button, Toolbar, Typography} from "@mui/material";
 import {checkBrowerSize} from "../store/browserSize";
 import {fx} from "../styles/common/mixins";
 import {$CT, $SB} from "../styles/common/variables";
