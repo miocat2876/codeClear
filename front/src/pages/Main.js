@@ -9,6 +9,7 @@ import MenuList from "../components/MenuList";
 import useMemberQuery from "../hoc/query/useMemberQuery";
 import {useQueryClient} from "react-query";
 import CropDinIcon from '@mui/icons-material/CropDin';
+import MemberJoinModal from "../components/modal/MemberJoinModal";
 
  function Main() {
 

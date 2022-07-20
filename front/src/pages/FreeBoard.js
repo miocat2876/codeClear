@@ -8,6 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {Box, Chip, Pagination, Stack, Typography} from "@mui/material";
 import {fx} from "../styles/common/mixins";
+import MemberJoinModal from "../components/modal/MemberJoinModal";
 
 function createData(name, calories, fat, carbs, protein) {
 	return { name, calories, fat, carbs, protein };
@@ -27,6 +28,7 @@ const rows = [
 export default function FreeBoard() {
 	return (
 		<>
+			<MemberJoinModal test="te"/>
 			<Box sx={{ width: 1200,py:'2rem',mx : 'auto'}} >
 			<Typography variant={'h5'} sx={{py:'1rem',...fx({$h:'left'})}}>자유게시판</Typography>
 				<TableContainer component={Paper}>
