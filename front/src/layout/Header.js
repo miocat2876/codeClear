@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {styled, alpha} from '@mui/material/styles';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
@@ -10,6 +10,7 @@ import {$CT, $SB} from "../styles/common/variables";
 import {Search, SearchIconWrapper} from "../styles/serachStyle";
 import {StyledInputBase} from "../styles/inputStyle";
 import {useNavigate} from "react-router-dom";
+import MemberLoginModal from "../components/modal/MemberLoginModal";
 
 const Header = () => {
 
@@ -18,6 +19,13 @@ const Header = () => {
 		console.log(link)
 		navigate(link);
 	}
+
+	const [isModal,setIsModal] = useState(false);
+
+	const modalToggle = (toggle) => {
+		setIsModal(toggle);
+	}
+
 	const {color} = useSelector(state => state.colorTheme);
 	const browserSize = useSelector(state => state.browserSize);
 
@@ -78,6 +86,7 @@ const Header = () => {
 								/>
 							</Search>
 							<Button
+								onClick={modalToggle}
 								style={menuStyled}>
 								로그인
 							</Button>
@@ -85,6 +94,7 @@ const Header = () => {
 					</Box>
 				</Toolbar>
 			</AppBar>
+			{isModal && <MemberLoginModal modalToggle={modalToggle}/>}
 		</div>
 	);
 };

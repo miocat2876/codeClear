@@ -42,7 +42,7 @@ const GlobalLoading = () => {
 	const isFetching = useIsFetching();
 	const isMutating = useIsMutating();
 	const [isLoading,setIsLoading] = useState(false);
-	const defaultLoading = 1000;
+	const defaultLoading = 500;
 
 	useEffect(() => {
 		const loading = isFetching > 0 || isMutating > 0;
@@ -57,11 +57,11 @@ const GlobalLoading = () => {
 
 	useEffect(() => {
 		if(isLoading) {
-			document.body.style.cssText = `position: fixed; top: -${window.scrollY}px; height: 100vh;`
+			document.body.style.cssText = `position: fixed; width: 100%; top: -${window.scrollY}px; height: 100vh;`
 		}
 		return () => {
 			const scrollY = document.body.style.top
-			document.body.style.cssText = `position: ""; top: ""; min-height: "";`
+			document.body.style.cssText = `position: ""; width: ""; top: ""; min-height: "";`
 			window.scrollTo(0, parseInt(scrollY || '0') * -1)
 		}
 	}, [isLoading])
