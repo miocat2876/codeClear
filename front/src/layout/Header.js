@@ -15,10 +15,39 @@ import MemberLoginModal from "../components/modal/MemberLoginModal";
 const Header = () => {
 
 	let navigate = useNavigate();
-	function handleClick(link) {
-		console.log(link)
-		navigate(link);
+
+	function handleClick(item) {
+		if(item.isModal){
+			setIsModal(true);
+		}else{
+			navigate(item.link);
+		}
 	}
+
+	const itemData = [
+		{
+			//img  : menuBoard,
+			title: '학원검색',
+			link : '/academy/*',
+			rows: 4,
+			cols: 2,
+			backgroundColor : 'rgb(203 189 155 / 14%)',
+		},
+		{
+			title: '게시판',
+			link : '/free-board',
+			cols: 2,
+			rows: 2,
+			backgroundColor : 'rgb(186 208 234 / 31%)',
+		},
+		{
+			title: '가입하기',
+			isModal : true,
+			cols: 2,
+			rows: 2,
+			backgroundColor : 'rgb(222 198 128 / 16%)',
+		}
+	];
 
 	const [isModal,setIsModal] = useState(false);
 
@@ -66,11 +95,12 @@ const Header = () => {
 								</Typography>
 							</Box>
 							<Box sx={menuListStyled}>
-								{menuList.map((menu, idx) =>
+								{itemData.map((menu, idx) =>
 									<Button
 										key={idx}
+										onClick={()=>handleClick(menu)}
 										style={menuStyled}>
-										{menu}
+										{menu.title}
 									</Button>
 								)}
 							</Box>

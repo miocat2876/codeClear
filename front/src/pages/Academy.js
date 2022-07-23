@@ -114,7 +114,7 @@ function Academy() {
                                 </FormGroup>
                             </AccordionDetails>
                         </Accordion>
-                        <Accordion expanded="true">
+                        <Accordion expanded={true}>
                             <AccordionSummary
                                 expandIcon={<KeyboardArrowDownSharpIcon />}
                                 aria-controls="panel1a-content"
@@ -148,7 +148,7 @@ function Academy() {
                     <Typography variant="h5" sx={{my : 2,textAlign:'left'}}>
                         학원목록
                     </Typography>
-                    <Grid container xs={12} spacing={3}>
+                    <Grid container spacing={3}>
                         {
                             tempData.map((data,idx)=>
                                 <Grid item xs={4} key={idx}>

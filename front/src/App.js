@@ -8,6 +8,7 @@ import GlobalLoading from "./hoc/query/commonQuery/GlobalLoading";
 import {useSelector} from "react-redux";
 import Academy from "./pages/Academy";
 import FreeBoard from "./pages/FreeBoard";
+import FreeBoardDetail from "./pages/FreeBoardDetail";
 
 function App() {
 
@@ -27,6 +28,9 @@ function App() {
 	},{
 		path    : '/free-board',
 		element : <FreeBoard/>
+	},{
+		path    : '/free-board-detail',
+		element : <FreeBoardDetail/>
 	}]
 
 	return (

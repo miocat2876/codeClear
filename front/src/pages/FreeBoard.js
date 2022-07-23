@@ -19,16 +19,15 @@ const rows = [
 	createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
 	createData('Eclair', 262, 16.0, 24, 6.0),
 	createData('Cupcake', 305, 3.7, 67, 4.3),
-	createData('Gingerbread', 356, 16.0, 49, 3.9),
-	createData('Gingerbread', 356, 16.0, 49, 3.9),
-	createData('Gingerbread', 356, 16.0, 49, 3.9),
-	createData('Gingerbread', 356, 16.0, 49, 3.9),
+	createData('Gingerbread1', 356, 16.0, 49, 3.9),
+	createData('Gingerbread2', 356, 16.0, 49, 3.9),
+	createData('Gingerbread3', 356, 16.0, 49, 3.9),
+	createData('Gingerbread4', 356, 16.0, 49, 3.9),
 ];
 
 export default function FreeBoard() {
 	return (
 		<>
-			<MemberJoinModal test="te"/>
 			<Box sx={{ width: 1200,py:'2rem',mx : 'auto'}} >
 			<Typography variant={'h5'} sx={{py:'1rem',...fx({$h:'left'})}}>자유게시판</Typography>
 				<TableContainer component={Paper}>

@@ -66,7 +66,7 @@ const itemData = [
 	{
 		//img  : menuBoard,
 		title: '학원검색',
-		link : '/product/*',
+		link : '/academy/*',
 		rows: 4,
 		cols: 2,
 		backgroundColor : 'rgb(203 189 155 / 14%)',
@@ -80,7 +80,6 @@ const itemData = [
 	{
 		title: '가입하기',
 		isModal : true,
-		link : MemberJoinModal,
 		cols: 2,
 		rows: 2,
 		backgroundColor : 'rgb(222 198 128 / 16%)',
