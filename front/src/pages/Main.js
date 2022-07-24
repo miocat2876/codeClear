@@ -70,7 +70,7 @@ import MemberJoinModal from "../components/modal/MemberJoinModal";
         >
             <Paper elevation={3} >
                 <Typography variant="h5" color="inherit" component="div" style={{height:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                    국비 학원정보가 필요하신가요? CodeClear가 도와드리겠습니다.
+                    학원정보가 필요하신가요? CodeClear가 도와드리겠습니다.
                 </Typography>
             </Paper>
         </Box>

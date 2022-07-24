@@ -1,14 +1,14 @@
 import React from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import './App.css';
 import Main from './pages/Main';
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import GlobalLoading from "./hoc/query/commonQuery/GlobalLoading";
 import {useSelector} from "react-redux";
 import Academy from "./pages/Academy";
-import FreeBoard from "./pages/FreeBoard";
 import FreeBoardDetail from "./pages/FreeBoardDetail";
+import FreeBoardWrite from './pages/FreeBoardWrite';
+import FreeBoardList from './pages/FreeBoardList';
 
 function App() {
 
@@ -27,10 +27,13 @@ function App() {
 		element : <Academy/>
 	},{
 		path    : '/free-board',
-		element : <FreeBoard/>
+		element : <FreeBoardList/>
 	},{
 		path    : '/free-board-detail',
 		element : <FreeBoardDetail/>
+	},{
+		path    : '/Toast-editor',
+		element : <FreeBoardWrite/>
 	}]
 
 	return (

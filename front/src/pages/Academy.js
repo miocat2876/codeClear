@@ -63,7 +63,7 @@ function Academy() {
     {
         'title'   : '샘플과정3',
         'address' : '강남구 머시기 학원3' 
-    }]
+    }];
 
     //
 

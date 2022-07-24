@@ -1,14 +1,15 @@
 import React from 'react';
-import {Box, Chip, Grid, Link, Paper, Typography} from "@mui/material";
+import {Box, Button, Chip, Grid, Link, Paper, Stack, Typography} from "@mui/material";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import {fx} from "../styles/common/mixins";
+import { $CT } from '../styles/common/variables';
 
 const FreeBoardDetail = () => {
 
 
 	return (
-		<div>
+		<>
 			<Box sx={{margin:'auto',width:'1000px',p:'1rem'}}>
 				<Box  sx={{...fx({$v:'cennter',$h:'right',gap:'10'})}}>
 					<Chip label="수정" variant="outlined" color="info" size="small" deleteIcon={<BorderColorIcon />} onDelete={()=>{}}
@@ -34,7 +35,12 @@ const FreeBoardDetail = () => {
 						asd
 				</Box>
 			</Box>
-		</div>
+			<Box>
+				<Stack direction="row" spacing={2} sx={{...fx({$h:$CT}),pt:'1rem'}}>
+					<Button color="primary" variant="outlined" onClick={()=>{}}>확인</Button>
+				</Stack>
+			</Box>
+		</>
 	);
 };
 

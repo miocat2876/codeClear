@@ -25,7 +25,7 @@ const rows = [
 	createData('Gingerbread4', 356, 16.0, 49, 3.9),
 ];
 
-export default function FreeBoard() {
+export default function FreeBoardList() {
 	return (
 		<>
 			<Box sx={{ width: 1200,py:'2rem',mx : 'auto'}} >
