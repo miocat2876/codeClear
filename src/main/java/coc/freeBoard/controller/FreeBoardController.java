@@ -28,13 +28,13 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/members")
+@RequestMapping("/free-board")
 public class FreeBoardController {
 
     private final FreeBoardService freeBoardService;
 
     @ResponseBody
-    @GetMapping("")
+    @GetMapping("/{id}")
     @ResponseStatus(value = HttpStatus.OK)
     public ResponseEntity<ResponseDto<Integer>> getBoardList(FreeBoardDto dto) {
 
@@ -51,8 +51,8 @@ public class FreeBoardController {
     }
 
     @ResponseBody
-    @PostMapping("/{boardType}/{id}")
-    public ResponseEntity<String> insertBoard(@PathVariable String boardType,@PathVariable String id,FreeBoardDto dto) {
+    @PostMapping("")
+    public ResponseEntity<String> insertBoard(FreeBoardDto dto) {
 
         String sampleResultData = freeBoardService.sample(dto) + "";
 
@@ -64,8 +64,8 @@ public class FreeBoardController {
     }
 
     @ResponseBody
-    @PutMapping("/{boardType}/{id}")
-    public ResponseEntity<String> updateBoard(@PathVariable String boardType,@PathVariable String id,FreeBoardDto dto) {
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateBoard(@PathVariable String id,FreeBoardDto dto) {
 
         String sampleResultData = freeBoardService.sample(dto) + "";
 
@@ -77,8 +77,8 @@ public class FreeBoardController {
     }
 
     @ResponseBody
-    @DeleteMapping("/{boardType}/{id}")
-    public ResponseEntity<String> deleteBoard(@PathVariable String boardType,@PathVariable String id,FreeBoardDto dto) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteBoard(@PathVariable String id,FreeBoardDto dto) {
 
         String sampleResultData = freeBoardService.sample(dto) + "";
 

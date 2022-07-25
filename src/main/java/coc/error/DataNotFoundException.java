@@ -1,6 +1,5 @@
 package coc.error;
 
-/* 예제 */
 public class DataNotFoundException extends AbstractErrorException{
 
 	public DataNotFoundException() {

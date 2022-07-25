@@ -1,4 +1,4 @@
-package coc.util;
+package coc.util.paging;
 
 public interface PageDto {
 
