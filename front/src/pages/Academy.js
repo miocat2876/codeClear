@@ -35,6 +35,8 @@ import {useSelector} from "react-redux";
 import {shadow} from "../styles/common/mixins";
 import KeyboardArrowDownSharpIcon from '@mui/icons-material/KeyboardArrowDownSharp';
 import SearchIcon from '@mui/icons-material/Search';
+import { AccordionStyled } from '../styles/AccordionStyled';
+import CommonInput from '../components/common/CommonInput';
 
 function Academy() {
 
@@ -83,8 +85,8 @@ function Academy() {
                 }}>
                 <Grid item xs={2} style={{}}>
                     <Paper>
-                        <Typography sx={{py:'1rem'}}>학원찾기</Typography>
-                        <Accordion>
+                        <Typography sx={{p:'1rem'}}>학원찾기</Typography>
+                        <AccordionStyled text='4'>
                             <AccordionSummary
                                 expandIcon={<KeyboardArrowDownSharpIcon />}
                                 aria-controls="panel1a-content"
@@ -98,8 +100,8 @@ function Academy() {
                                     <FormControlLabel control={<Checkbox />} label="경기" />
                                 </FormGroup>
                             </AccordionDetails>
-                        </Accordion>
-                        <Accordion>
+                        </AccordionStyled>
+                        <AccordionStyled>
                             <AccordionSummary
                                 expandIcon={<KeyboardArrowDownSharpIcon />}
                                 aria-controls="panel1a-content"
@@ -108,13 +110,14 @@ function Academy() {
                                 <Typography>카테고리</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
+                                <CommonInput type="checkbox"/>
                                 <FormGroup>
                                     <FormControlLabel control={<Checkbox defaultChecked />} label="프론트엔드" />
                                     <FormControlLabel control={<Checkbox />} label="백엔드" />
                                 </FormGroup>
                             </AccordionDetails>
-                        </Accordion>
-                        <Accordion expanded={true}>
+                        </AccordionStyled>
+                        <AccordionStyled expanded={true}>
                             <AccordionSummary
                                 expandIcon={<KeyboardArrowDownSharpIcon />}
                                 aria-controls="panel1a-content"
@@ -128,7 +131,7 @@ function Academy() {
                                     <FormControlLabel control={<Checkbox />} label="경기" />
                                 </FormGroup>
                             </AccordionDetails>
-                        </Accordion>
+                        </AccordionStyled>
                         <Box sx={{p:'1rem',textAlign:'left'}}>
                             <FormControl variant="standard">
                                 <Input
