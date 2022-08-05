@@ -6,12 +6,13 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
 @Getter
 @Setter
 public class FreeBoardDto extends CrudDto {
-
+	//NotBlank 널및 공백 비허용
+	//NotEmpty 공백 비허용
+	//NotNull 널 비허용
 	@NotEmpty(message = "고유식별번호는 필수 입니다")
 //	@Size(max = 10)
 	private String freeNumPk;

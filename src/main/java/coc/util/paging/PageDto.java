@@ -3,13 +3,13 @@ package coc.util.paging;
 public interface PageDto {
 
 	public final int defaultViewData = 20;
-	public abstract int getParamCurrentPage();
-	public abstract int getParamViewData();
-	public abstract String getParamSearchCondition();
-	public abstract String getParamSearchValue();
-	public abstract void setParamCurrentPage(int getCurrentPage);
-	public abstract void setParamSearchCondition(String searchCondition);
-	public abstract void setParamSearchValue(String searchValue);
+	public int getParamCurrentPage();
+	public int getParamViewData();
+	public String getParamSearchCondition();
+	public String getParamSearchValue();
+	public void setParamCurrentPage(int getCurrentPage);
+	public void setParamSearchCondition(String searchCondition);
+	public void setParamSearchValue(String searchValue);
 
 	default public int CheckCurrentPage() {
 		return getParamCurrentPage() == 0 ? 1 : getParamCurrentPage();
