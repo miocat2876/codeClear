@@ -10,7 +10,7 @@ const CommonCheckbox = ({data=[{label :'테스트',checked : true}]},value2) => 
         setState({...state,[name]:checked});
         value2(state);
     }
-   //테스트1
+   //테스트12
     return (
         <div>
             <FormGroup>
